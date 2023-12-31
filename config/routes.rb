@@ -1,6 +1,9 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  get 'events/index'
+  get 'events/destroy'
+  get 'visits/index'
   resources :titles
   draw :madmin
   get '/privacy', to: 'home#privacy'
@@ -15,6 +18,9 @@ authenticate :user, lambda { |u| u.admin? } do
     end
   end
 end
+
+  resources :visits
+  resources :events
 
   authenticated :user do
     root 'titles#index', as: :authenticated_root

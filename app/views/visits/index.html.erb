@@ -1,0 +1,39 @@
+<h1>Visit Log</h1>
+<div class="table-responsive">
+  <table class="table table-striped table-condensed table-hover">
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>IP Address</th>
+        <th>City</th>
+        <th>State/Region</th>
+        <th>Country</th>
+        <th>Lat./Lon.</th>
+        <th>Browser</th>
+        <th>OS</th>
+        <th>Device Type</th>
+        <th>Landing Page</th>
+        <th>Referrer</th>
+        <th>User Agent</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @visits.each do |visit| %></td>
+        <tr>
+          <td><%= visit.started_at.in_time_zone("Pacific Time (US & Canada)") %></td>
+          <td><%= visit.ip %></td>
+          <td><%= visit.city %></td>
+          <td><%= visit.region %></td>
+          <td><%= visit.country %></td>
+          <td><%= "#{visit.latitude} / #{visit.longitude}" %></td>
+          <td><%= visit.browser %></td>
+          <td><%= visit.os %></td>
+          <td><%= visit.device_type %></td>
+          <td><%= visit.landing_page %></td>
+          <td><%= visit.referrer %></td>
+          <td><%= visit.user_agent %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

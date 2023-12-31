@@ -91,3 +91,5 @@ gem "capistrano-rails", "~> 1.6"
 gem "capistrano-passenger", "~> 0.2.1"
 
 gem "capistrano-rbenv", "~> 2.2"
+
+gem "ahoy_matey", "~> 5.0"
