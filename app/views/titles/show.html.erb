@@ -1,0 +1,22 @@
+<div class="page-header">
+  <h1><%= @title.name %></h1>
+  <p><%= @title.year %></p>
+</div>
+<div class="container row">
+  <%= content_tag :div, data: { controller: 'video' } do %>
+    <%= content_tag :video, data: { target: 'video.player' } do %>
+      <%= tag :source, src: @title.content_slug, type: "video/mp4" %>
+    <% end %>
+  <% end %>
+</div>
+<div class="row">
+  <div class="col col-md">
+    <%= link_to titles_path, class: 'btn btn-sm btn-default text-danger' do %>
+      Back
+    <% end %>
+    <%= link_to edit_title_path(@title), class: 'btn btn-sm btn-default text-primary' do %>
+      Edit
+    <% end %>
+  </div>
+</div>
+<small><%= @title.description %></small>

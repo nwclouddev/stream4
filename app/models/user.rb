@@ -1,0 +1,61 @@
+class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable
+
+  has_one_attached :avatar
+  has_person_name
+  has_noticed_notifications
+
+  has_many :notifications, as: :recipient, dependent: :destroy
+  has_many :services
+
+  before_save :check_toggle_seed_data
+  before_commit :check_flush_seed_data
+
+  def check_toggle_seed_data
+    if self.toggle_seed_data == true
+    require 'csv'
+    Title.destroy_all
+    f = File.open(Rails.root.join('seed.csv'))
+
+    CSV.foreach(f, headers: true) do |row|
+      Title.create!(
+      name: row[0],
+      description: ActionView::Base.full_sanitizer.sanitize(row[1]),
+      year: row[2].to_i,
+      content_url: row['Content URL'],
+      thumbnail_url: row['Thumbnail URL'],
+      user: User.first
+      )
+    end
+    self.toggle_seed_data = false
+    save!
+  end
+end
+
+
+  def check_flush_seed_data
+    if self.flush_seed_data == true
+        Title.destroy_all
+        Title.create(
+        name: 'Test',
+        description:'Test Description',
+        year: 2023,
+        content_url: 'content/oceans.mp4',
+        thumbnail_url: 'content/elf.jpg',
+        user: User.first
+      )
+        Title.create(
+        name: 'Hello',
+        description:'Hello Description',
+        year: 2023,
+        content_url: 'content/oceans.mp4',
+        thumbnail_url: 'content/elf.jpg',
+        user: User.first
+      )
+      self.flush_seed_data = false
+      save!
+    end
+  end
+end
