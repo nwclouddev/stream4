@@ -23,12 +23,23 @@
           <%= content_tag :div, class: 'card', id: dom_id(title) do %>
             <img src="<%= title.thumbnail_slug %>" class='card-img-top', alt='No Image' >
             <div class="card-body">
-              <h5 class="card-title"><%= title.name %> </h5>
-              <p><%= title.year %></p>
-              <p><%= truncate(title.description,length: 100) %>
-              <%= link_to title, class: 'btn btn-primary' do %>
-                Go
-              <% end %>
+              <div class="row">
+                <h5 class="card-title"><%= title.name %> </h5>
+                <p><%= title.year %></p>
+                <p><%= truncate(title.description,length: 100) %>
+                <%= link_to title, class: 'btn btn-primary' do %>
+                  Go
+                <% end %>
+              </div>
+              <div class="row">
+                <div class="mb-3">
+                  <% if title.content_groups.any? %>
+                    <% title.content_groups.each do |content_group|  %>
+                      <span class="badge rounded-pill text-bg-info"><%= content_group.name %></span>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
             </div>
           <% end %>
         </div>

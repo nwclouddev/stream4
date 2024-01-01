@@ -10,6 +10,14 @@ class User < ApplicationRecord
   has_many :notifications, as: :recipient, dependent: :destroy
   has_many :services
 
+  has_and_belongs_to_many :content_groups
+  has_and_belongs_to_many :favorite_content_groups, class_name: 'ContentGroup'
+
+  def favorite_titles
+    Title.joins(:content_groups).where(content_groups: { id: favorite_content_groups.select(:id) })
+  end
+
+
   before_save :check_toggle_seed_data
   before_commit :check_flush_seed_data
 

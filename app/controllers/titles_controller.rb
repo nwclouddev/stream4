@@ -6,7 +6,8 @@ class TitlesController < ApplicationController
   def index
     # @query = Episode.order(:year, :name).ransack(params[:query])
     # @pagy, @episodes = pagy(@query.result(distinct: true))
-    @query = Title.order("visited_at DESC", "name ASC", "year DESC").ransack(params[:query])
+    @favorite_titles = current_user.favorite_titles
+    @query = @favorite_titles.order("visited_at DESC", "name ASC", "year DESC").ransack(params[:query])
     @pagy, @titles = pagy(@query.result(distinct: true))
   end
 

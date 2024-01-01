@@ -4,6 +4,16 @@
 #
 # Example:
 #
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+
+User.create(email: 'adam2@nwclouddev.com', first_name: 'Adam', last_name: 'Johnson', password: 'password', password_confirmation: 'password', admin: true)
+
+
+
+["Some Action Title", "Some Comedy Title", "Some Drama Title", "Some Horror Title"].each do |title|
+  Title.find_or_create_by!(name: title)
+end
+
+
+["Action", "Comedy", "Drama", "Horror"].each do |content_group|
+  ContentGroup.find_or_create_by!(name: genre_name)
+end

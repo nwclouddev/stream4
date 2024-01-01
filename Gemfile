@@ -46,7 +46,6 @@ gem "bootsnap", require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri windows ]
 end
 
 group :development do
@@ -93,3 +92,6 @@ gem "capistrano-passenger", "~> 0.2.1"
 gem "capistrano-rbenv", "~> 2.2"
 
 gem "ahoy_matey", "~> 5.0"
+
+gem "better_errors", "~> 2.10"
+gem "binding_of_caller", "~> 1.0"

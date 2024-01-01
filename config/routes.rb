@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :content_groups
   get 'events/index'
   get 'events/destroy'
   get 'visits/index'

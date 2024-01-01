@@ -1,7 +1,8 @@
 class Title < ApplicationRecord
   belongs_to :user
+  has_and_belongs_to_many :content_groups
 
-  validates :year, presence: true
+  validates :name, :description, :year, presence: true
 
   def self.ransackable_attributes(auth_object = nil)
     ["name", "description", "year"]

@@ -1,0 +1,16 @@
+<div class="page-header">
+  <%= link_to content_groups_path, class: 'btn btn-default' do %>
+    All Content_groups
+  <% end %>
+  <%= link_to edit_content_group_path(@content_group), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show content_group</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @content_group.name %></dd>
+  <dt>Description:</dt>
+  <dd><%= @content_group.description %></dd>
+</dl>
