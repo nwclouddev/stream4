@@ -39,3 +39,23 @@ set :keep_releases, 5
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+#
+# Step 1: Define the deployment ID
+# This is an example. Modify it according to your needs.
+deployment_id = Time.now.strftime("%Y%m%d%H%M%S")
+
+# Step 2: Set the environment variable in Capistrano
+set :deployment_id, deployment_id
+
+# Step 3: Export the variable on the target server
+namespace :deploy do
+  task :set_deployment_id do
+    on roles(:all) do
+      # Using rbenv's rbenv-vars plugin to set the environment variable
+      execute :echo, "'DEPLOYMENT_ID=#{fetch(:deployment_id)}' >> ~/.rbenv-vars"
+      execute :rbenv, 'rehash'
+    end
+  end
+
+  before :starting, :set_deployment_id
+end
