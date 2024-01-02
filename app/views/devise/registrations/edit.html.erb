@@ -30,13 +30,31 @@
             Content Groups
           </div>
           <div class="card-body">
-              <% if resource.content_groups.any? %>
-                <% resource.content_groups.each do |content_group|  %>
-                  <%= content_tag :span, class: 'badge rounded-pill text-bg-info' do %>
-                    <%= content_group.name %>                    
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                </tr>
+              </thead>
+              <tbody>
+                <% if resource.content_groups.any? %>
+                  <% resource.content_groups.each do |content_group|  %>
+                    <%= content_tag :tr, id: dom_id(content_group) do %>
+                      <td><%= content_group.name %></td>
+                      <td style="text-align:center">
+                        <%= link_to remove_content_group_path(@user, content_group), method: :delete, data: { confirm: 'Remove Content Group from user?' } do %>
+                          <i class="text-danger fa fa-trash-alt"></i>
+                        <% end %>
+                      </td>
+                    <% end %>
                   <% end %>
+                <% else %>
+                  <tr>
+                    <td>No Content Groups associated.</td>
+                    <td></td>
+                  </tr>
                 <% end %>
-              <% end %>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

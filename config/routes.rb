@@ -1,6 +1,15 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+
+
+  devise_scope :user do
+    #get "/some/route" => "some_devise_controller"
+    delete 'users/:user_id/content_groups/:id', to: 'users#remove_content_group', as: 'remove_content_group'
+  end
+
+
+
   resources :content_groups
   get 'events/index'
   get 'events/destroy'

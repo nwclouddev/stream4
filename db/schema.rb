@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_01_194600) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_02_041706) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -110,6 +110,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_01_194600) do
   create_table "content_groups_users", id: false, force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "content_group_id", null: false
+    t.index ["content_group_id"], name: "index_content_groups_users_on_content_group_id"
+    t.index ["user_id"], name: "index_content_groups_users_on_user_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
