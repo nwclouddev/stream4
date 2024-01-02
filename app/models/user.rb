@@ -17,9 +17,9 @@ class User < ApplicationRecord
     Title.joins(:content_groups).where(content_groups: { id: favorite_content_groups.select(:id) })
   end
 
-
   before_save :check_toggle_seed_data
   before_commit :check_flush_seed_data
+  before_destroy :remove_other_models
 
   def check_toggle_seed_data
     if self.toggle_seed_data == true
@@ -41,7 +41,6 @@ class User < ApplicationRecord
     save!
   end
 end
-
 
   def check_flush_seed_data
     if self.flush_seed_data == true
@@ -65,5 +64,12 @@ end
       self.flush_seed_data = false
       save!
     end
+  end
+
+  private
+
+  def remove_other_models
+    byebug
+    other_models.clear
   end
 end
