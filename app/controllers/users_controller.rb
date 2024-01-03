@@ -1,4 +1,4 @@
-class UsersController < Devise::RegistrationsController
+class UsersController extends Devise::RegistrationsController
 
   def remove_content_group
     user = User.find(params[:user_id])
