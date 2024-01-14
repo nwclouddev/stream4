@@ -20,6 +20,8 @@ class TitlesController < ApplicationController
   # GET /titles/new
   def new
     @title = Title.new
+    @title.description = 'TBD'
+    @title.year = Time.now.year
   end
 
   # GET /titles/1/edit
@@ -29,7 +31,7 @@ class TitlesController < ApplicationController
   # POST /titles or /titles.json
   def create
     @title = Title.new(title_params)
-
+    @title.user = current_user
     respond_to do |format|
       if @title.save
         format.html { redirect_to title_url(@title), notice: "Title was successfully created." }

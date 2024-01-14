@@ -23,22 +23,17 @@
 
   <div class="mb-3">
     <%= form.label :content_url, class: 'form-label' %>
-      <%= form.text_field :content_url, class: 'form-control' %>
+      <%= form.text_field :content_url, value: 'content/',class: 'form-control' %>
     </div>
 
   <div class="mb-3">
     <%= form.label :thumbnail_url, class: 'form-label' %>
-      <%= form.text_field :thumbnail_url, class: 'form-control' %>
+      <%= form.text_field :thumbnail_url, value: 'content/', class: 'form-control' %>
     </div>
 
   <div class="mb-3">
     <%= form.label :year, class: 'form-label' %>
       <%= form.number_field :year, class: 'form-control' %>
-    </div>
-
-  <div class="mb-3">
-    <%= form.label :user_id, class: 'form-label' %>
-      <%= form.text_field :user_id, class: 'form-control' %>
     </div>
 
   <div class="mb-3">
