@@ -13,7 +13,7 @@
 <%= search_form_for @query, role: 'search' do |f| %>
   <div class='mb-3'>
     <p>
-      <%= sort_link(@query, :name) %> | <%= sort_link(@query, :year) %>
+      <%= sort_link(@query, :name) %> | <%= sort_link(@query, :created_at, "Date Added") %> | <%= sort_link(@query, :year, "Year") %>
     </p>
     <%= f.search_field :name_or_description_i_cont, class: 'form-control' %>
     <br/>
