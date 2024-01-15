@@ -5,7 +5,7 @@ class Title < ApplicationRecord
   validates :name, :description, :year, presence: true
 
   def self.ransackable_attributes(auth_object = nil)
-    ["name", "description", "year"]
+    ["name", "description", "year", "created_at"]
   end
 
   def thumbnail_slug
