@@ -23,18 +23,21 @@
 
   <div class="mb-3">
     <%= form.label :content_url, class: 'form-label' %>
-      <%= form.text_field :content_url, value: 'content/',class: 'form-control' %>
+      <%= form.text_field :content_url, default_value: 'content/',class: 'form-control' %>
     </div>
 
   <div class="mb-3">
     <%= form.label :thumbnail_url, class: 'form-label' %>
-      <%= form.text_field :thumbnail_url, value: 'content/', class: 'form-control' %>
+      <%= form.text_field :thumbnail_url, default_value: 'content/', class: 'form-control' %>
     </div>
 
   <div class="mb-3">
     <%= form.label :year, class: 'form-label' %>
       <%= form.number_field :year, class: 'form-control' %>
     </div>
+  <div class="mb-3">
+    <%= form.collection_select(:content_group_ids, ContentGroup.all, :id, :name, { prompt: "Choose categories (can be empty)" }, { multiple: true, class: "form-select", size: 5 }) %>
+  </div>
 
   <div class="mb-3">
     <% if title.persisted? %>

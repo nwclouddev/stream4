@@ -74,6 +74,6 @@ class TitlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def title_params
-      params.require(:title).permit(:name, :description, :content_url, :thumbnail_url, :year, :user_id)
+      params.require(:title).permit(:name, :description, :content_url, :thumbnail_url, :year, :user_id, content_group_ids: [])
     end
 end
