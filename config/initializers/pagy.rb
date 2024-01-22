@@ -1,5 +1,5 @@
 require 'pagy/extras/bootstrap'
-Pagy::DEFAULT[:items] = 50
+Pagy::DEFAULT[:items] = 100
 Pagy::DEFAULT[:size]  = [1,2,2,1]
 # frozen_string_literal: true
 
