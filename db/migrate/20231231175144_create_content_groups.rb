@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateContentGroups < ActiveRecord::Migration[7.1]
   # def change
   #   create_table :content_groups do |t|

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateJoinTableUserContentGroup < ActiveRecord::Migration[7.1]
   def change
     create_join_table :users, :content_groups do |t|

@@ -1,0 +1,107 @@
+	# We want Exclude directives from different
+ # config files to get merged, not overwritten
+ inherit_mode:
+   merge:
+     - Exclude
+ 
+ inherit_from:
+   - .rubocop/rails.yml
+   - .rubocop/performance.yml
+   - .rubocop/rspec.yml
+   - .rubocop/strict.yml
+ 
+ ##############
+ # Global rules
+ 
+ AllCops:
+   NewCops: enable
+   TargetRubyVersion: 2.7
+   Include:
+     - "**/*.rb"
+     - "rails-root/**/Gemfile"
+     - "**/config.ru"
+   Exclude:
+     - "rails-root/db/**/*"
+     - "rails-root/bin/**/*"
+     - "node_modules/**/*"
+   # Brazil uses symlinks, so we should let Rubocop know
+   AllowSymlinksInCacheRootDirectory: true
+ 
+ Layout/CaseIndentation:
+   Description: Indentation of when in a case/when/[else/]end.
+   Enabled: true
+   EnforcedStyle: case
+   IndentOneStep: false
+ 
+ # 120 chars is about what you can see on-screen on a laptop (and should allow
+ # two columns side-by-side on a larger widescreen monitor)
+ Layout/LineLength:
+   Max: 120
+   AutoCorrect: true
+   Exclude:
+     - "rails-root/spec/**/*"
+     - "rails-root/lib/tasks/**/*"
+ 
+ Lint/MissingSuper:
+   Exclude:
+     - "rails-root/app/services/**/*"
+ 
+ Metrics/AbcSize:
+   Enabled: false
+ 
+ Metrics/BlockLength:
+   Exclude:
+     - "rails-root/spec/**/*"
+     - "rails-root/config/**/*"
+     - "rails-root/lib/tasks/**/*"
+ 
+ Metrics/ClassLength:
+   Enabled: false
+ 
+ Metrics/MethodLength:
+   Enabled: false
+ 
+ # Set max number of branches per method (includes 'else' statements)
+ # Tests can be more complex if needed.
+ Metrics/PerceivedComplexity:
+   Max: 13
+   Exclude:
+     - "rails-root/spec/**/*"
+ 
+ Rails/UnknownEnv:
+   Environments:
+     - development
+     - test
+     - bb_test
+     - alpha
+     - production
+ 
+ # Don't force documentation
+ Style/Documentation:
+   Enabled: false
+ 
+ Style/DocumentationMethod:
+   Enabled: false
+ 
+ # Don't force magic comment `# frozen_string_literal: true` in every file
+ Style/FrozenStringLiteralComment:
+   Enabled: false
+ 
+ # Allow the amazon-specific global variable, $ENVROOT:
+ Style/GlobalVars:
+   AllowedVariables: ["$ENVROOT"]
+ 
+ # Allow double-quoted strings without interpolation. The customer is always right.
+ Style/StringLiterals:
+   Enabled: false
+ 
+ # Supports --autocorrect
+ Style/StringLiteralsInInterpolation:
+   Description:
+     Checks if uses of quotes inside expressions in interpolated strings match
+     the configured preference.
+   Enabled: false
+   EnforcedStyle: single_quotes
+   SupportedStyles:
+     - single_quote
+     - double_quotes

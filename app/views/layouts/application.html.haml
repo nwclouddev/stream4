@@ -1,0 +1,12 @@
+!!!
+%html.h-100{"data-bs-theme" => "dark"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    = render 'shared/head'
+  %body.d-flex.flex-column.h-100
+    %main.flex-shrink-0
+      = render 'shared/navbar'
+      = render 'shared/notices'
+      .container.mt-4.mx-auto
+        = yield
+    = render 'shared/footer'

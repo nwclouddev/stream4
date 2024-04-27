@@ -1,10 +1,10 @@
+# frozen_string_literal: true
+
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.18.0"
+lock '~> 3.18.0'
 
-set :application, "stream4"
-set :repo_url, "git@github.com:nwclouddev/stream4.git"
-
-
+set :application, 'stream4'
+set :repo_url, 'git@github.com:nwclouddev/stream4.git'
 
 set :branch, 'main'
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -26,7 +26,8 @@ set :deploy_to, "/home/deploy/#{fetch :application}"
 # append :linked_files, "config/database.yml", 'config/master.key'
 
 # Default value for linked_dirs is []
-append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system',
+       'public/uploads'
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -41,7 +42,7 @@ set :keep_releases, 5
 # set :ssh_options, verify_host_key: :secure
 #
 # Step 1: Define the deployment ID
-deployment_id = Time.now.strftime("%Y%m%d%H%M%S")
+deployment_id = Time.now.strftime('%Y%m%d%H%M%S')
 
 # Step 2: Set the environment variable on the server
 namespace :deploy do

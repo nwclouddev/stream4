@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EventsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_event, only: [:destroy]
@@ -14,11 +16,12 @@ class EventsController < ApplicationController
   end
 
   private
-    def set_event
-      @event = Ahoy::Event.find(params[:id])
-    end
 
-    def event_params
-      params.require(:ahoy_event).permit(:id)
-    end
+  def set_event
+    @event = Ahoy::Event.find(params[:id])
+  end
+
+  def event_params
+    params.require(:ahoy_event).permit(:id)
+  end
 end

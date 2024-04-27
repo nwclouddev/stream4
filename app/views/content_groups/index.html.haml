@@ -1,0 +1,17 @@
+.row
+  .col-sm-6
+    %h1 Content Groups
+  .col-sm-6.text-end
+    = link_to new_content_group_path, class: 'btn btn-primary' do
+      Add New Content Group
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Name
+        %th Description
+    %tbody
+      - @content_groups.each do |content_group|
+        = content_tag :tr, id: dom_id(content_group), class: dom_class(content_group) do
+          %td= link_to content_group.name, content_group
+          %td= content_group.description

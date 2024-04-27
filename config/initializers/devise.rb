@@ -274,8 +274,8 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
   env_creds = Rails.application.credentials[Rails.env.to_sym] || {}
-  %i{ facebook twitter github }.each do |provider|
-    if options = env_creds[provider]
+  %i[facebook twitter github].each do |provider|
+    if (options = env_creds[provider])
       config.omniauth provider, options[:app_id], options[:app_secret], options.fetch(:options, {})
     end
   end

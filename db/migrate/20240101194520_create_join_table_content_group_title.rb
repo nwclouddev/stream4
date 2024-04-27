@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateJoinTableContentGroupTitle < ActiveRecord::Migration[7.1]
   def change
     create_join_table :content_groups, :titles do |t|

@@ -1,0 +1,32 @@
+%h1 Visit Log
+.table-responsive
+  %table.table.table-striped.table-condensed.table-hover
+    %thead
+      %tr
+        %th Time
+        %th IP Address
+        %th City
+        %th State/Region
+        %th Country
+        %th Lat./Lon.
+        %th Browser
+        %th OS
+        %th Device Type
+        %th Landing Page
+        %th Referrer
+        %th User Agent
+    %tbody
+      - @visits.each do |visit|
+        %tr
+          %td= visit.started_at.in_time_zone("Pacific Time (US & Canada)")
+          %td= visit.ip
+          %td= visit.city
+          %td= visit.region
+          %td= visit.country
+          %td= "#{visit.latitude} / #{visit.longitude}"
+          %td= visit.browser
+          %td= visit.os
+          %td= visit.device_type
+          %td= visit.landing_page
+          %td= visit.referrer
+          %td= visit.user_agent

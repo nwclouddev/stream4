@@ -1,0 +1,24 @@
+= form_with(model: content_group) do |form|
+  - if content_group.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(content_group.errors.count, "error")
+        prohibited this content_group from being saved:
+      %ul
+        - content_group.errors.full_messages.each do |message|
+          %li= message
+  .mb-3
+    = form.label :name, class: 'form-label'
+    = form.text_field :name, class: 'form-control'
+  .mb-3
+    = form.label :description, class: 'form-label'
+    = form.text_field :description, class: 'form-control'
+  .mb-3
+    - if content_group.persisted?
+      .float-end
+        = link_to 'Destroy', content_group, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' }
+    = form.submit class: 'btn btn-primary'
+    - if content_group.persisted?
+      = link_to "Cancel", content_group, class: "btn btn-link"
+    - else
+      = link_to "Cancel", content_groups_path, class: "btn btn-link"

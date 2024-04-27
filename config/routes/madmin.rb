@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Below are the routes for madmin
 namespace :madmin do
   namespace :active_storage do
@@ -13,5 +15,5 @@ namespace :madmin do
   resources :announcements
   resources :notifications
   resources :users
-  root to: "dashboard#show"
+  root to: 'dashboard#show'
 end

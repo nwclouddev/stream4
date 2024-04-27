@@ -1,0 +1,11 @@
+.page-header
+  = link_to content_groups_path, class: 'btn btn-default' do
+    All Content_groups
+  = link_to edit_content_group_path(@content_group), class: 'btn btn-primary' do
+    Edit
+  %h1 Show content_group
+%dl.dl-horizontal
+  %dt Name:
+  %dd= @content_group.name
+  %dt Description:
+  %dd= @content_group.description

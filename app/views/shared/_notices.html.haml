@@ -1,0 +1,5 @@
+- flash.each do |msg_type, message|
+  .container.mt-4.mx-auto
+    %div{:class => "alert #{bootstrap_class_for(msg_type)} alert-dismissible fade show", :role => "alert"}
+      = message
+      %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "alert", :type => "button"}
