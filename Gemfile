@@ -2,10 +2,10 @@
 
 source 'https://rubygems.org'
 
-ruby '3.3.3'
+ruby '3.3.2'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem 'rails', '~> 7.1.2'
+gem 'rails', '~> 7.2.0.beta2'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
@@ -95,7 +95,7 @@ gem 'omniauth-twitter', '~> 1.4'
 gem 'pagy', '~> 6.2'
 gem 'pretender', '~> 0.3.4'
 gem 'pundit', '~> 2.1'
-gem 'ransack', '~> 4.1'
+gem 'ransack', github: 'avo-hq/ransack', branch: 'fix/rails-8/delegate-alias-tracker-to-relation'
 gem 'responders', github: 'heartcombo/responders', branch: 'main'
 gem 'sidekiq', '~> 6.2'
 gem 'sitemap_generator', '~> 6.1'
