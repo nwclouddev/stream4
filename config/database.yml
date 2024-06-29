@@ -15,10 +15,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: <%= Rails.application.credentials.db_host %>
-  port: <%= Rails.application.credentials.db_port %>
-  username: <%= Rails.application.credentials.db_user %>
-  password: <%= Rails.application.credentials.db_password %>
+  port: 5432
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -26,6 +23,9 @@ default: &default
 development:
   <<: *default
   database: stream4_development
+  host: localhost
+  username: postgres
+  password: development
 
 test:
   <<: *default
@@ -34,4 +34,6 @@ test:
 production:
   <<: *default
   database: stream4_production
+  username: <%= Rails.application.credentials.db_user %>
+  password: <%= Rails.application.credentials.db_password %>
   
