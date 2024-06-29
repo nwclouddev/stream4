@@ -17,6 +17,8 @@ require 'capistrano/deploy'
 require 'capistrano/scm/git'
 require 'capistrano/rails'
 require 'capistrano/rbenv'
+require 'capistrano3-puma'
+require 'puma'
 
 install_plugin Capistrano::SCM::Git
 
@@ -43,4 +45,4 @@ install_plugin Capistrano::SCM::Git
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
 
 set :rbenv_type, :user
-set :rbenv_ruby, '3.3.3'
+set :rbenv_ruby, '3.3.2'
