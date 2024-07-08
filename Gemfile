@@ -97,3 +97,5 @@ gem 'sidekiq', '~> 6.2'
 gem 'sitemap_generator', '~> 6.1'
 gem 'streamio-ffmpeg', '~> 3.0'
 gem 'whenever', require: false
+
+gem "dockerfile-rails", ">= 1.6", :group => :development
