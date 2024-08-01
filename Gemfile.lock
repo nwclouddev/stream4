@@ -527,6 +527,7 @@ DEPENDENCIES
   madmin
   name_of_person (~> 1.1)
   net-pop (~> 0.1.2)
+  net-protocol (~> 0.2.2)
   noticed (~> 1.4)
   omniauth-facebook (~> 8.0)
   omniauth-github (~> 2.0)
@@ -551,6 +552,7 @@ DEPENDENCIES
   sprockets-rails
   stimulus-rails
   streamio-ffmpeg (~> 3.0)
+  timeout (~> 0.4.1)
   turbo-rails
   web-console
   whenever
