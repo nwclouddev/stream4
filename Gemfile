@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-ruby '3.3.2'
+ruby '3.3.3'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.2.0.beta2'
@@ -36,9 +36,6 @@ gem 'redis', '>= 4.0.1'
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[windows jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
@@ -98,4 +95,9 @@ gem 'sitemap_generator', '~> 6.1'
 gem 'streamio-ffmpeg', '~> 3.0'
 gem 'whenever', require: false
 
-gem "dockerfile-rails", ">= 1.6", :group => :development
+gem 'dockerfile-rails', '>= 1.6', group: :development
+
+gem 'capistrano', '~> 3.11'
+gem 'capistrano-passenger', '~> 0.2.0'
+gem 'capistrano-rails', '~> 1.4'
+gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'

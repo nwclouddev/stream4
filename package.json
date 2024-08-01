@@ -12,7 +12,7 @@
     "bootstrap": "^5.3.2",
     "bootstrap-icons": "^1.11.2",
     "chokidar": "^3.5.3",
-    "esbuild": "^0.19.11",
+    "esbuild": "^0.23.0",
     "esbuild-rails": "^1.0.7",
     "local-time": "^2.1.0",
     "nodemon": "^3.0.2",

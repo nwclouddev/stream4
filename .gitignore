@@ -41,3 +41,6 @@
 
 /tmp
 .DS_Store
+
+/app/assets/content
+/public/content

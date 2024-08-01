@@ -5,7 +5,7 @@
 <div class="container row">
   <%= content_tag :div, data: { controller: 'video' } do %>
     <%= content_tag :video, data: { target: 'video.player' } do %>
-      <%= tag :source, src: @title.content_slug, type: "video/mp4" %>
+      <%= tag :source, src: "/#{@title.content_url}", type: "video/mp4" %>
     <% end %>
   <% end %>
 </div>

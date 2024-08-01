@@ -11,24 +11,10 @@ class Title < ApplicationRecord
   end
 
   def thumbnail_slug
-    case Rails.env
-    when 'development'
-      "/assets/#{thumbnail_url}"
-    when 'production'
-      "/#{thumbnail_url}"
-    else
-      "/#{thumbnail_url}"
-    end
+    "/#{thumbnail_url}"
   end
 
   def content_slug
-    case Rails.env
-    when 'development'
-      "/assets/#{content_url}"
-    when 'production'
-      "/#{content_url}"
-    else
-      "/#{content_url}"
-    end
+    "/#{content_url}"
   end
 end
