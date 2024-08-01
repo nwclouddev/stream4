@@ -101,8 +101,4 @@ gem 'capistrano', '~> 3.11'
 gem 'capistrano-passenger', '~> 0.2.0'
 gem 'capistrano-rails', '~> 1.4'
 gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
-
-gem "net-pop", "~> 0.1.2"
-
-gem "net-protocol", "~> 0.2.2"
-gem "timeout", "~> 0.4.1"
+gem 'net-pop', github: 'ruby/net-pop'

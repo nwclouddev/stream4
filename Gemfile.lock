@@ -17,6 +17,12 @@ GIT
       actionpack (>= 5.2)
       railties (>= 5.2)
 
+GIT
+  remote: https://github.com/ruby/net-pop.git
+  revision: e8d0afe2773b9eb6a23c39e9e437f6fc0fc7c733
+  specs:
+    net-pop (0.1.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -250,7 +256,6 @@ GEM
     net-imap (0.4.14)
       date
       net-protocol
-    net-pop (0.1.2)
     net-protocol (0.2.2)
       timeout
     net-scp (4.0.0)
@@ -375,7 +380,7 @@ GEM
     regexp_parser (2.9.2)
     reline (0.5.9)
       io-console (~> 0.5)
-    rexml (3.3.2)
+    rexml (3.3.3)
       strscan
     rouge (4.3.0)
     rspec-core (3.13.0)
@@ -526,8 +531,7 @@ DEPENDENCIES
   jsbundling-rails
   madmin
   name_of_person (~> 1.1)
-  net-pop (~> 0.1.2)
-  net-protocol (~> 0.2.2)
+  net-pop!
   noticed (~> 1.4)
   omniauth-facebook (~> 8.0)
   omniauth-github (~> 2.0)
@@ -552,7 +556,6 @@ DEPENDENCIES
   sprockets-rails
   stimulus-rails
   streamio-ffmpeg (~> 3.0)
-  timeout (~> 0.4.1)
   turbo-rails
   web-console
   whenever
