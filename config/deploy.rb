@@ -3,6 +3,7 @@ lock '~> 3.19.1'
 
 set :application, 'stream4'
 set :repo_url, 'git@github.com:nwclouddev/stream4.git'
+set :branch, 'main'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
