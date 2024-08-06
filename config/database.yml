@@ -5,18 +5,20 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: <%= Rails.application.credentials.dig(:development, :db, :username) %>
   password: <%= Rails.application.credentials.dig(:development, :db, :password) %>
-  host: localhost
 
 development:
   <<: *default
+  host: localhost
   timeout: 5000
   database: stream4_development
   
 test:
   <<: *default
+  host: localhost
   database: stream4_test
 
 production:
   <<: *default
+  host: media.nwclouddev.com
   database: stream4_production
   
