@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   draw :madmin
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'
+  get 'favorite_titles', to: 'titles#favorite_titles'
   authenticate :user, ->(u) { u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
 
@@ -31,7 +32,7 @@ Rails.application.routes.draw do
   resources :events
 
   authenticated :user do
-    root 'titles#index', as: :authenticated_root
+    root 'titles#favorite_titles', as: :authenticated_root
   end
 
   unauthenticated do

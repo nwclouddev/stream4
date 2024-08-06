@@ -62,6 +62,7 @@ group :development do
   # gem "spring"
   #
   gem 'rubocop'
+  gem 'solargraph'
 end
 
 group :test do
