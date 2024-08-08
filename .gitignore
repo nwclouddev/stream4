@@ -44,3 +44,4 @@
 
 /app/assets/content
 /public/content
+.env

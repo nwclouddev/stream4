@@ -99,7 +99,7 @@ gem 'whenever', require: false
 gem 'dockerfile-rails', '>= 1.6', group: :development
 
 gem 'capistrano', '~> 3.11'
-gem 'capistrano-passenger', '~> 0.2.0'
+gem 'capistrano3-puma', '~> 5.0'
 gem 'capistrano-rails', '~> 1.4'
 gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
 gem 'net-pop', github: 'ruby/net-pop'
