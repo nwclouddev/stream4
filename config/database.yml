@@ -86,5 +86,6 @@ test:
 production:
   <<: *default
   database: stream4_production
+  host: media.nwclouddev.com
   username: stream4
   password: <%= ENV["STREAM4_DATABASE_PASSWORD"] %>
