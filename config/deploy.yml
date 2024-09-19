@@ -24,7 +24,7 @@ env:
     DB_HOST: media.nwclouddev.com
   secret:
     - RAILS_MASTER_KEY
-    - SECRET_KEY_BASE
+    - secret_key_base
     - STREAM4_DATABASE_PASSWORD
 
 # Use a different ssh user than root
