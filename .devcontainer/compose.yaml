@@ -21,6 +21,17 @@ services:
     - selenium
     - redis
     - postgres
+  
+    docker:
+      image: docker:latest
+      privileged: true
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+        - ./docker-data:/var/lib/docker
+      environment:
+        - DOCKER_TLS_CERTDIR=/certs
+      ports:
+        - "2375:2375"
 
   selenium:
     image: selenium/standalone-chromium
@@ -42,6 +53,7 @@ services:
     environment:
         POSTGRES_USER: postgres
         POSTGRES_PASSWORD: postgres
+  
 
 volumes:
   redis-data:

@@ -2,12 +2,11 @@
 service: stream4
 
 # Name of the container image.
-image: deploy/stream4
+image: nwclouddev/stream4
 
 # Deploy to these servers.
 servers:
   - 10.10.0.11
-
 # Credentials for your image host.
 registry:
   # Specify the registry server, if you're not using Docker Hub
@@ -25,6 +24,7 @@ env:
     DB_HOST: 10.10.0.11
   secret:
     - RAILS_MASTER_KEY
+    - SECRET_KEY_BASE
 
 # Use a different ssh user than root
 ssh:
@@ -33,7 +33,7 @@ ssh:
 # Configure builder setup.
 builder:
   args:
-    RUBY_VERSION: 3.3.2
+    RUBY_VERSION: 3.3.4
 #   secrets:
 #     - GITHUB_TOKEN
   remote:
