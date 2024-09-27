@@ -6,7 +6,7 @@ image: nwclouddev/stream4
 
 # Deploy to these servers.
 servers:
-  - stream4.nwclouddev.com
+  - media.nwclouddev.com
 # Credentials for your image host.
 registry:
   # Specify the registry server, if you're not using Docker Hub
@@ -38,7 +38,7 @@ builder:
 #   secrets:
 #     - GITHUB_TOKEN
   remote:
-    arch: arm64
+    arch: amd64
     # host: ssh://deploy@192.168.0.1
 
 # Use accessory services (secrets come from .env).
