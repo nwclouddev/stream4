@@ -41,6 +41,9 @@ builder:
     arch: amd64
     # host: ssh://deploy@192.168.0.1
 
+volumes:
+  - /media/adam/NAS/Utility/content:/rails/public:ro
+
 # Use accessory services (secrets come from .env).
 # accessories:
 #   db:
