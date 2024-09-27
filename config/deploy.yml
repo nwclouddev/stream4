@@ -1,5 +1,4 @@
 service: stream4
-  ssl: true
 
 image: nwclouddev/stream4
 
