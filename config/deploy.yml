@@ -44,6 +44,9 @@ builder:
 volumes:
   - /media/adam/NAS/Utility/content:/rails/public/content:rw
 
+proxy:
+  ssl: true
+
 # Use accessory services (secrets come from .env).
 # accessories:
 #   db:
