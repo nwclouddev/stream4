@@ -1,5 +1,6 @@
 # Name of your application. Used to uniquely configure containers.
 service: stream4
+  ssl: true
 
 # Name of the container image.
 image: nwclouddev/stream4
@@ -7,7 +8,6 @@ image: nwclouddev/stream4
 # Deploy to these servers.
 servers:
   - media.nwclouddev.com
-    ssl: true
 # Credentials for your image host.
 registry:
   # Specify the registry server, if you're not using Docker Hub
