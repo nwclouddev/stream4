@@ -7,6 +7,7 @@ image: nwclouddev/stream4
 # Deploy to these servers.
 servers:
   - media.nwclouddev.com
+  ssl: true
 # Credentials for your image host.
 registry:
   # Specify the registry server, if you're not using Docker Hub
@@ -44,7 +45,6 @@ builder:
 volumes:
   - /media/adam/NAS/Utility/content:/rails/public/content:rw
 
-ssl: true
 
 # Use accessory services (secrets come from .env).
 # accessories:
