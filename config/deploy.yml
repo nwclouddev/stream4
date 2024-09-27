@@ -3,7 +3,13 @@ service: stream4
 image: nwclouddev/stream4
 
 servers:
-  - media.nwclouddev.com
+  web:
+    hosts:
+      - media.nwclouddev.com
+    labels:
+      traefik.http.routers.stream4.rule: Host(`media.nwclouddev.com`)
+      traefik.http.routers.stream4.entrypoints: websecure
+      traefik.http.routers.stream4.tls.certresolvers: letsencrypt
 
 registry:
   username: nwclouddev
@@ -35,5 +41,19 @@ traefik:
   options:
     publish:
       - "443:443"
-    args:
-      entryPoints.websecure.address: ":443"
+    # Make sure the file for this volume is set up on the host server
+    # and has the correct permissions.
+    volume:
+      - "/etc/letsencrypt/acme.json:/etc/letsencrypt/acme.json"
+  args:
+    entryPoints.web.address: ":80"
+    entryPoints.websecure.address: ":443"
+    entryPoints.web.http.redirections.entryPoint.to: websecure
+    entryPoints.web.http.redirections.entryPoint.scheme: https
+    entryPoints.web.http.redirections.entrypoint.permanent: true
+    certificatesResolvers.letsencrypt.acme.email: "adam@nwclouddev.com"
+    # Make sure the value for this argument matches the mounted file
+    # set in the `volume:` section for Traefik.
+    certificatesResolvers.letsencrypt.acme.storage: "/etc/letsencrypt/acme.json"
+    certificatesResolvers.letsencrypt.acme.httpchallenge: true
+    certificatesResolvers.letsencrypt.acme.httpchallenge.entrypoint: web
