@@ -6,10 +6,6 @@ servers:
   web:
     hosts: 
       - media.nwclouddev.com
-    # labels:
-    #   traefik.http.routers.stream4.rule: Host(`media.nwclouddev.com`)
-    #   traefik.http.routers.stream4.entrypoints: websecure
-    #   traefik.http.routers.stream4.tls.certresolvers: letsencrypt
 
 registry:
   username: nwclouddev
@@ -30,12 +26,12 @@ ssh:
 builder:
   args:
     RUBY_VERSION: 3.3.4
-
   remote:
     arch: amd64
-
+    host: 10.10.0.15
+    
 volumes:
-  - /media/adam/NAS/Utility/content:/rails/public/content:rw
+  - /home/adam/NAS/Utility/content:/rails/public/content:rw
 
 # traefik:
 #   options:
