@@ -21,7 +21,7 @@ default: &default
   <% if ENV["DB_HOST"] %>
   host: <%= ENV["DB_HOST"] %>
   username: postgres
-  password: development
+  password: postgres
   <% end %>
 
 
@@ -86,6 +86,5 @@ test:
 production:
   <<: *default
   database: stream4_production
-  host: media.nwclouddev.com
-  username: postgres
+  username: stream4
   password: <%= ENV["STREAM4_DATABASE_PASSWORD"] %>
