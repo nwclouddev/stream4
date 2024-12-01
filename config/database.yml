@@ -27,6 +27,7 @@ default: &default
 
 development:
   <<: *default
+  host: localhost
   database: stream4_development
 
   # The specified database role being used to connect to PostgreSQL.
